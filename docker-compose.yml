@@ -50,7 +50,7 @@ services:
       # Note that this endpoint URL is Opentest-
       - MHS_FORWARD_RELIABLE_ENDPOINT_URL=https://msg.int.spine2.ncrs.nhs.uk/reliablemessaging/reliablerequest
       # This is for disabling hostname validation so OpenTest ip address
-      - MHS_OUTBOUND_VALIDATE_CERTIFICATE=${MHS_OUTBOUND_VALIDATE_CERTIFICATE:-True}
+      - MHS_OUTBOUND_VALIDATE_CERTIFICATE=${MHS_OUTBOUND_VALIDATE_CERTIFICATE:-False}
       - SERVICE_PORTS=80
       - MHS_OUTBOUND_ROUTING_LOOKUP_METHOD=SDS_API
       - MHS_SDS_API_URL=https://int.api.service.nhs.uk/spine-directory/FHIR/R4
