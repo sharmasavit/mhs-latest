@@ -16,6 +16,8 @@ RUN pip install pipenv
 COPY common/ /usr/src/app/common/
 COPY mhs/common/ /usr/src/app/mhs/common/
 COPY mhs/outbound/ /usr/src/app/mhs/outbound
+COPY docker/outbound/ca-cert.crt /etc/ssl/certs/
+RUN update-ca-certificates
 
 WORKDIR /usr/src/app/mhs/outbound
 ENV PYTHONPATH "${PYTHONPATH}:/usr/src/app/mhs/common"

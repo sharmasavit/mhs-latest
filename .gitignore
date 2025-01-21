@@ -119,7 +119,7 @@ venv.bak/
 
 # Certs
 **/*.cert
-**/*.crt
+#**/*.crt
 **/*.key
 **/*.pem
 **/certs/party_key.txt
