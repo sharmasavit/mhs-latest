@@ -162,13 +162,6 @@ def main():
                                                   private_key=secrets.get_secret_config('CLIENT_KEY'),
                                                   local_cert=secrets.get_secret_config('CLIENT_CERT'),
                                                   ca_certs=secrets.get_secret_config('CA_CERTS'))
-
-    # Logging certificate paths
-    log.logger.info(f"Certificate paths:")
-    log.logger.info(f"  Local cert path: {certificates.local_cert_path}")
-    log.logger.info(f"  Private key path: {certificates.private_key_path}")
-    log.logger.info(f"  CA certs path: {certificates.ca_certs_path}")
-
     max_retries = int(config.get_config('OUTBOUND_TRANSMISSION_MAX_RETRIES', default="3"))
     retry_delay = int(config.get_config('OUTBOUND_TRANSMISSION_RETRY_DELAY', default="100"))
     validate_cert = str2bool(config.get_config('OUTBOUND_VALIDATE_CERTIFICATE', default=str(True)))
@@ -197,7 +190,6 @@ def main():
     workflows = initialise_workflows(transmission, party_key, work_description_store, sync_async_store,
                                      max_request_size, routing)
     start_tornado_server(data_dir, workflows)
-
 
 
 if __name__ == "__main__":

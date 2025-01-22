@@ -2,7 +2,6 @@
 
 from ssl import SSLError
 from typing import Dict
-from pathlib import Path
 
 from comms.common_https import CommonHttps
 from retry import retriable_action
@@ -11,8 +10,6 @@ from tornado import httpclient
 from utilities import integration_adaptors_logger as log
 
 logger = log.IntegrationAdaptorsLogger(__name__)
-ca_cert_path = Path('docker/outbound/ca-cert.crt').resolve()
-
 
 
 class OutboundTransmissionError(Exception):
@@ -52,7 +49,6 @@ class OutboundTransmission(transmission_adaptor.TransmissionAdaptor):
     async def make_request(self, url: str, headers: Dict[str, str], message: str,
                            raise_error_response: bool = True) -> httpclient.HTTPResponse:
 
-        resolved_ca_certs_path = Path(self._ca_certs).resolve()
         async def make_http_request():
             logger.info("About to send message with {headers} to {url} using {proxy_host} & {proxy_port}",
                         fparams={
@@ -63,7 +59,7 @@ class OutboundTransmission(transmission_adaptor.TransmissionAdaptor):
                         })
             response = await CommonHttps.make_request(url=url, method="POST", headers=headers, body=message,
                                                       client_cert=self._client_cert, client_key=self._client_key,
-                                                      ca_certs=str(resolved_ca_certs_path), validate_cert=self._validate_cert,
+                                                      ca_certs=self._ca_certs, validate_cert=self._validate_cert,
                                                       http_proxy_host=self._proxy_host,
                                                       http_proxy_port=self._proxy_port,
                                                       raise_error_response=raise_error_response)
