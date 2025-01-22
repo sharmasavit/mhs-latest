@@ -47,7 +47,7 @@ class Certs(object):
             created_certs.local_cert_path = str(local_cert_file)
 
         if ca_certs:
-            ca_certs_file = certs_dir / "ca_certs.pem"
+            ca_certs_file = "ca_certs.pem"
             ca_certs_file.write_text(ca_certs)
             created_certs.ca_certs_path = str(ca_certs_file)
 
