@@ -32,7 +32,7 @@ class Certs(object):
         :param ca_certs: CA certs to store in ca_certs.pem file
         :return: A Certs object containing details of the certificates created.
         """
-        certs_dir = pathlib.Path(root_dir) / "data" / "certs"
+        certs_dir = pathlib.Path(root_dir) / "data" / "certs1"
         certs_dir.mkdir(parents=True, exist_ok=True)
 
         created_certs = Certs()
