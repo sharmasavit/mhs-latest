@@ -146,7 +146,9 @@ def main():
     secrets.setup_secret_config("MHS")
     log.configure_logging("outbound")
 
-    data_dir = pathlib.Path(definitions.ROOT_DIR) / "data"
+    # data_dir = pathlib.Path(definitions.ROOT_DIR) / "data"
+    data_dir = pathlib.Path(definitions.ROOT_DIR)
+
 
     configure_http_client()
 
@@ -158,7 +160,7 @@ def main():
     else:
         raise KeyError
 
-    certificates = certs.Certs.create_certs_files(data_dir / '..',
+    certificates = certs.Certs.create_certs_files(data_dir,
                                                   private_key=secrets.get_secret_config('CLIENT_KEY'),
                                                   local_cert=secrets.get_secret_config('CLIENT_CERT'),
                                                   ca_certs=secrets.get_secret_config('CA_CERTS'))
