@@ -100,7 +100,7 @@ services:
         ZzgzbXowbWFlZzFjUkU2ZnRWTVJRVUxjcmRGMWhKNDRkYjBvSGJBN0ZST0RCSmhJ
         YXpQdExQVkFYWStqNTdLQQ0KMXZzaVdNdVNxbVBSYkw1eWlhWTJRVmM9
         -----END PRIVATE KEY-----
-        - MHS_SECRET_CA_CERTS="-----BEGIN CERTIFICATE-----
+        - MHS_SECRET_CA_CERTS=-----BEGIN CERTIFICATE-----
         MIIFhzCCA2+gAwIBAgIQGjdQ3OTSYx62oSmGTy9tazANBgkqhkiG9w0BAQwFADBM
         MQswCQYDVQQGEwJHQjEMMAoGA1UEChMDbmhzMQswCQYDVQQLEwJDQTEiMCAGA1UE
         AxMZTkhTIFBUTCBSb290IEF1dGhvcml0eSBHMjAeFw0yMjA4MDQxNDA1NDNaFw0z
@@ -164,7 +164,7 @@ services:
         Nlo+MiECpArwqymOxnULpKCwgJApVrwht0eDYzIw5XCe68FCQ/Ewaj25l81gVyWQ
         gM4KvdmCt0vk++15mcuUayTdcUg4cAGegvP8g0a9qncHT83J9E4D47QvftZkqZtF
         E3e+hb4BEdtJoedF9IHxjaHpRVhwJT98
-        -----END CERTIFICATE-----"
+        -----END CERTIFICATE-----
       - MHS_STATE_TABLE_NAME=mhs_state
       - MHS_DB_ENDPOINT_URL=http://host.docker.internal:8000
       - MHS_SYNC_ASYNC_STATE_TABLE_NAME=sync_async_state
