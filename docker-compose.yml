@@ -347,7 +347,6 @@ services:
     links:
       - inbound
     ports:
-      - "443:443"
       - "8079:80"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
