@@ -118,10 +118,10 @@ venv.bak/
 
 
 # Certs
-**/*.cert
+#**/*.cert
 #**/*.crt
-**/*.key
-**/*.pem
+#**/*.key
+#**/*.pem
 **/certs/party_key.txt
 **/certs/asid.txt
 
