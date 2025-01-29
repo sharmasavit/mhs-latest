@@ -5,12 +5,17 @@ services:
     image: nhsdev/nia-mhs-inbound:1.3.3
     ports:
       - "9787:443"
+    volumes:
+      - ./certs/client.pem:/usr/src/app/certs/client.pem
+      - ./certs/client.key:/usr/src/app/certs/client.key
+      - ./certs/ca_certs.pem:/usr/src/app/certs/ca_certs.pem
+
     environment:
       - MHS_LOG_LEVEL=DEBUG
       - MHS_SECRET_PARTY_KEY=VND3J-823806
-      - MHS_SECRET_CLIENT_CERT=/certs/client.pem
-      - MHS_SECRET_CLIENT_KEY=/certs/client.key
-      - MHS_SECRET_CA_CERTS=/certs/ca_certs.pem
+      - MHS_SECRET_CLIENT_CERT=/usr/src/app/certs/client.pem
+      - MHS_SECRET_CLIENT_KEY=/usr/src/app/certs/client.key
+      - MHS_SECRET_CA_CERTS=/usr/src/app/certs/ca_certs.pem
       - MHS_INBOUND_QUEUE_BROKERS=amqp://localhost:5672
       - MHS_INBOUND_QUEUE_NAME=inbound
       - MHS_SECRET_INBOUND_QUEUE_USERNAME=guest
