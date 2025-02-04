@@ -146,8 +146,6 @@ services:
       AWS_SECRET_ACCESS_KEY: test
       MHS_INBOUND_USE_SSL: ${MHS_INBOUND_USE_SSL:-false}
       TCP_PORTS: "80"
-      SERVICE_PORTS: "80"
-      SUPPORTED_FILE_TYPES:
   outbound:
     image: nhsdev/nia-mhs-outbound:1.3.3
     ports:
@@ -291,12 +289,12 @@ services:
       MHS_SPINE_ORG_CODE: ${MHS_SPINE_ORG_CODE:-YES}
       MHS_SPINE_REQUEST_MAX_SIZE: 4999600 # 5 000 000 - 400
      # Note that this endpoint URL is Opentest-
-      MHS_FORWARD_RELIABLE_ENDPOINT_URL: https://msg.int.spine2.ncrs.nhs.uk/reliablemessaging/reliablerequest
+      MHS_FORWARD_RELIABLE_ENDPOINT_URL: http://msg.int.spine2.ncrs.nhs.uk/reliablemessaging/reliablerequest
       #This is for disabling hostname validation so OpenTest ip address
       MHS_OUTBOUND_VALIDATE_CERTIFICATE: ${MHS_OUTBOUND_VALIDATE_CERTIFICATE:-True}
       SERVICE_PORTS: 443
       MHS_OUTBOUND_ROUTING_LOOKUP_METHOD: SDS_API
-      MHS_SDS_API_URL: https://int.api.service.nhs.uk/spine-directory/FHIR/R4
+      MHS_SDS_API_URL: http://int.api.service.nhs.uk/spine-directory/FHIR/R4
       MHS_SDS_API_KEY: BGH3LMDtnadxNtL6YetqurpZDnE4wjtz
   route:
     image: nhsdev/nia-mhs-route:1.3.3
