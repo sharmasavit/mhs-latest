@@ -4,7 +4,7 @@ services:
   inbound:
     image: nhsdev/nia-mhs-inbound:1.3.3
     ports:
-      - "443"
+#      - "443"
       - "80"
     environment:
       MHS_LOG_LEVEL: DEBUG
@@ -145,13 +145,13 @@ services:
       AWS_ACCESS_KEY_ID: test
       AWS_SECRET_ACCESS_KEY: test
       MHS_INBOUND_USE_SSL: ${MHS_INBOUND_USE_SSL:-true}
-      TCP_PORTS: "443"
-      SERVICE_PORTS: "443,80"
+      TCP_PORTS: "80"
+      SERVICE_PORTS: "80"
       SUPPORTED_FILE_TYPES:
   outbound:
     image: nhsdev/nia-mhs-outbound:1.3.3
     ports:
-      - "32768:443"
+      - "32768:80"
     environment:
       MHS_LOG_LEVEL: DEBUG
       MHS_SECRET_PARTY_KEY: VND3J-823806
@@ -291,17 +291,17 @@ services:
       MHS_SPINE_ORG_CODE: ${MHS_SPINE_ORG_CODE:-YES}
       MHS_SPINE_REQUEST_MAX_SIZE: 4999600 # 5 000 000 - 400
      # Note that this endpoint URL is Opentest-
-      MHS_FORWARD_RELIABLE_ENDPOINT_URL: http://msg.int.spine2.ncrs.nhs.uk/reliablemessaging/reliablerequest
+      MHS_FORWARD_RELIABLE_ENDPOINT_URL: https://msg.int.spine2.ncrs.nhs.uk/reliablemessaging/reliablerequest
       #This is for disabling hostname validation so OpenTest ip address
       MHS_OUTBOUND_VALIDATE_CERTIFICATE: ${MHS_OUTBOUND_VALIDATE_CERTIFICATE:-True}
       SERVICE_PORTS: 443
       MHS_OUTBOUND_ROUTING_LOOKUP_METHOD: SDS_API
-      MHS_SDS_API_URL: http://int.api.service.nhs.uk/spine-directory/FHIR/R4
+      MHS_SDS_API_URL: https://int.api.service.nhs.uk/spine-directory/FHIR/R4
       MHS_SDS_API_KEY: BGH3LMDtnadxNtL6YetqurpZDnE4wjtz
   route:
     image: nhsdev/nia-mhs-route:1.3.3
     ports:
-      - "8080:443"
+      - "8080:80"
     environment:
       - MHS_LOG_LEVEL=NOTSET
       - MHS_SDS_URL=ldap://192.168.128.11
@@ -335,7 +335,7 @@ services:
         - inbound
       ports:
         - "443:443"
-        - "8079:443"
+        - "8079:80"
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
       environment:
@@ -347,7 +347,7 @@ services:
       links:
         - outbound
       ports:
-        - "80:443"
+        - "80:80"
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
       environment:
