@@ -134,7 +134,7 @@ services:
         gM4KvdmCt0vk++15mcuUayTdcUg4cAGegvP8g0a9qncHT83J9E4D47QvftZkqZtF
         E3e+hb4BEdtJoedF9IHxjaHpRVhwJT98
         -----END CERTIFICATE-----
-      MHS_INBOUND_QUEUE_BROKERS: amqp://rabbitmq:5672
+      MHS_INBOUND_QUEUE_BROKERS: amqp://localhost:5672
       MHS_INBOUND_QUEUE_NAME: inbound
       MHS_SECRET_INBOUND_QUEUE_USERNAME: ${MHS_SECRET_INBOUND_QUEUE_USERNAME:-guest}
       MHS_SECRET_INBOUND_QUEUE_PASSWORD: ${MHS_SECRET_INBOUND_QUEUE_PASSWORD:-guest}
@@ -144,7 +144,7 @@ services:
       MHS_INBOUND_QUEUE_MESSAGE_TTL_IN_SECONDS: 0
       AWS_ACCESS_KEY_ID: test
       AWS_SECRET_ACCESS_KEY: test
-      MHS_INBOUND_USE_SSL: ${MHS_INBOUND_USE_SSL:-false}
+      MHS_INBOUND_USE_SSL: ${MHS_INBOUND_USE_SSL:-true}
       TCP_PORTS: "80,443"
   outbound:
     image: nhsdev/nia-mhs-outbound:1.3.3
