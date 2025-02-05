@@ -332,7 +332,7 @@ services:
     depends_on:
       - inbound
     ports:
-      - "8084:443"  # Change this to avoid conflict
+      - "8089:443"  # Change this to avoid conflict
       - "8079:443"  # Bind different ports for load balancing
 
   outbound-lb:
@@ -349,7 +349,7 @@ services:
   sds-api-mock:
       build: ./docker/sds-api-mock
       ports:
-        - "8084:8080"
+        - "8089:8080"
       command:
         - -global-response-templating
         - --verbose
