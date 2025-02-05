@@ -332,7 +332,7 @@ services:
     depends_on:
       - inbound
     ports:
-      - "8081:443"  # Change this to avoid conflict
+      - "8084:443"  # Change this to avoid conflict
       - "8079:443"  # Bind different ports for load balancing
 
   outbound-lb:
