@@ -151,7 +151,7 @@ services:
   outbound:
     image: nhsdev/nia-mhs-outbound:1.3.3
     ports:
-      - "32776:80"
+      - "80"
     environment:
       MHS_LOG_LEVEL: DEBUG
       MHS_SECRET_PARTY_KEY: VND3J-823806
@@ -176,10 +176,10 @@ services:
         HR8EPDA6MDigNqA0hjJodHRwOi8vY3JsLm5ocy51ay9pbnQvZzIvYXV0aC9OSFNJ
         TlRhdXRoRzJfYzIwLmNybDArBgNVHRAEJDAigA8yMDI0MDgyOTEyMzc1N1qBDzIw
         MjYxMDA1MDEwNzU3WjAfBgNVHSMEGDAWgBQWx0cEqGDJ5F2rmfKU98PeM5jUIjAd
-        BgNVHQ4EFgQUbmsMrmsnKZWDE4Daqn7xF/PgGfMwCQYDVR0TBAIwADAaBgkqhkiG
+        BgNVHQ4EFgQUbsMArmsnKZWDE4Daqn7xF/PgGfMwCQYDVR0TBAIwADAaBgkqhkiG
         9n0HQQAEDTALGwVWMTAuMAMCBLAwDQYJKoZIhvcNAQELBQADggEBAH0FQTh/IZLV
         kOK01Maw6aCeg3/1jks1RhIBAVK2OVoB0Fe3q4Dx/rFnqjWmIypyOrCWe6Av1RJD
-        j4f2f8tIRCUanNXQLLa5hA6L8QcCqSf92vPQegGE6RPGoyY3Z67xXDW0JjKhNfZk
+        j4f2f8tIRCUnINXQLLa5hA6L8QcCqSf92vPQegGE6RPGoyY3Z67xXDW0JjKhNfZk
         8Jee3Py+XEYu1nxMkZAc0sewiPm4bbgiL/YtBVycGLR3OG++5Y+fWMGLd9Kjr6cQ
         MaMVqxifurPZYqrja0XwFGnU3fFeT73cRGlym3TrCDrpWatsDQquIXtJAU7y+1K0
         ENHrdjPazyJryo2EH7yGZCSD9GukcETIPjzAsxiN+fjfXoC2FaOHynWp7ikoaCv1
